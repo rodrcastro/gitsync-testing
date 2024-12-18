@@ -10,9 +10,9 @@ coverY: 0
 
 $$
 Fee_{buy} = \begin{cases}
-min\_-fee\_buy, &\text{if } price_{current} \leq price\_-buy_{min} \\
-max\_-fee\_buy, &\text{if } price_{current} \geq price\_-buy_{max} \\
-min\_-fee\_buy + \frac{max\_-fee\_-buy - min\_-fee\_-buy}{price\_-buy_{max} - price\_-buy_{min}} \cdot (price_{current} - price\_-buy_{min}), &\text{otherwise}.
+min\_fee\_buy, &\text{if } price_{current} \leq price\_buy_{min} \\
+max\_fee\_buy, &\text{if } price_{current} \geq price\_buy_{max} \\
+min\_fee\_buy + \frac{max\_fee\_buy - min\_fee\_buy}{price\_buy_{max} - price\_buy_{min}} \cdot (price_{current} - price\_buy_{min}), &\text{otherwise}.
 \end{cases}
 $$
 
