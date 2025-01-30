@@ -1,4 +1,4 @@
-# 😁 page1
+# page1
 
 This is a first page in my GitBook content
 
