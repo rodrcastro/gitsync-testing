@@ -8,3 +8,4 @@
 * [undo page](undo-page.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
 * [item](item.md)
+* [Reusable content in the API](reusable-content-in-the-api.md)
