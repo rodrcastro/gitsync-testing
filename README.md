@@ -14,7 +14,10 @@ min\_fee\_buy + \frac{max\_fee\_buy - min\_fee\_buy}{price\_buy_{max} - price\_b
 \end{cases}
 $$
 
-Aliqua fugiat esse duis sunt minim. Sit labore ea occaecat aliquip dolore deserunt. Sit ex quis quis adipisicing veniam cupidatat tempor deserunt nulla cillum. Anim aliqua ea nulla velit proident nulla reprehenderit.
+Aliqua fugiat esse duis sunt minim. [Sit labore ea occaecat](#user-content-fn-1)[^1] aliquip dolore deserunt. Sit ex quis quis adipisicing veniam cupidatat tempor deserunt nulla cillum. Anim aliqua ea nulla velit proident nulla reprehenderit.
 
 {% @github-files/github-code-block url="https://github.com/aeternity/aepp-sdk-js/blob/568c291b92c030011ca9e68169f328be6ff79488/examples/browser/wallet-web-extension/src/background.js#L1-L163" %}
 
+
+
+[^1]: this is a footnote
