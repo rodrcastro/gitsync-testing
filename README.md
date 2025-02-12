@@ -18,6 +18,8 @@ Aliqua fugiat esse duis sunt minim. [Sit labore ea occaecat](#user-content-fn-bi
 
 {% @github-files/github-code-block url="https://github.com/aeternity/aepp-sdk-js/blob/568c291b92c030011ca9e68169f328be6ff79488/examples/browser/wallet-web-extension/src/background.js#L1-L163" %}
 
+What if I add the [same footnote here](#user-content-fn-bignote)[^bignote], what happens?
+
 
 
 [^bignote]: this is a footnote - editing
