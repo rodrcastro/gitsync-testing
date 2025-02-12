@@ -17,6 +17,8 @@ Id quis aliqua consectetur sit proident proident duis quis nulla incididunt aute
 
 And [another footnote](#user-content-fn-3)[^3].
 
+Another [reference](#user-content-fn-2)[^2]
+
 [^bignote]: this is a footnote - editing
 
 [^2]: second footnote
