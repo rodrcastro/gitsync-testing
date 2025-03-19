@@ -1,7 +1,13 @@
 ---
 title: apt:/v1/accounts/{account_hash}/events/{creation_number} - Aptos
-description: Example code for the apt:/v1/accounts/{account_hash}/events/{creation_number} json-rpc method. Сomplete guide on how to use apt:/v1/accounts/{account_hash}/events/{creation_number} json-rpc in GetBlock.io Web3 documentation.
+description: >-
+  Example code for the apt:/v1/accounts/{account_hash}/events/{creation_number}
+  json-rpc method. Сomplete guide on how to use
+  apt:/v1/accounts/{account_hash}/events/{creation_number} json-rpc in GetBloc
 ---
+
+# item
+
 Excepteur anim adipisicing eu amet voluptate officia et nulla eiusmod sunt ullamco ex ad. Ut labore dolore ad nostrud aliqua mollit voluptate ut reprehenderit. Eu laboris proident ipsum. Consectetur do consequat officia excepteur adipisicing culpa. Dolore amet sit ea mollit ipsum ea excepteur commodo laboris minim eu. Tempor commodo reprehenderit consectetur cupidatat ipsum occaecat mollit nulla quis. Adipisicing ex aliquip voluptate. Ea aliquip ullamco sunt incididunt et adipisicing est aliquip id.
 
 Veniam consequat enim culpa. Quis eiusmod voluptate commodo. Enim ex voluptate reprehenderit dolor. Qui ea qui velit.

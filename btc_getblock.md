@@ -1,9 +1,12 @@
 ---
-description: Example code for the btc:getblock json-rpc method. Сomplete guide on how to use btc:getblock json-rpc in GetBlock.io Web3 documentation.
+description: >-
+  Example code for the btc:getblock json-rpc method. Сomplete guide on how to
+  use btc:getblock json-rpc in GetBlock.io Web3 documentation.
 ---
 
-### Parameters
+# btc:getblock - Bitcoin
 
+#### Parameters
 
 `blockhash` - string, required
 
@@ -11,12 +14,11 @@ The block hash
 
 `verbosity` - numeric, optional, default=1
 
-0 for hex-encoded data, 1 for a json object, and 2 for json object with
-transaction data
+0 for hex-encoded data, 1 for a json object, and 2 for json object with transaction data
 
-### Request
+#### Request
 
-``` java
+```java
 curl --location --request POST 'https://btc.getblock.io/mainnet/' \
 --header 'x-api-key: YOUR-API-KEY' \
 --header 'Content-Type: application/json' \
@@ -26,9 +28,9 @@ curl --location --request POST 'https://btc.getblock.io/mainnet/' \
 "id" : "getblock.io"}'
 ```
 
-###  Response
+#### Response
 
-``` java
+```java
 {
     "bits": "170cdf6f",
     "chainwork": "00000000000000000000000000000000000000001b633a711a2334c78a29bb40",
