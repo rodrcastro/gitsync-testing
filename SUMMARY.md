@@ -1,6 +1,6 @@
 # Table of contents
 
-* [gitsync-testing](README.md)
+* [gitsync-testing-title change](README.md)
 * [group-2](group-2/README.md)
   * [page1](group-2/page1.md)
   * [item](group-2/item.md)

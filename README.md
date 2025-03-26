@@ -3,9 +3,11 @@ cover: .gitbook/assets/IMG_1997.JPG
 coverY: 0
 ---
 
-# gitsync-testing
+# gitsync-testing-title change
 
 Aliqua fugiat esse duis sunt minim. [Sit labore ea occaecat](#user-content-fn-1)[^1] aliquip dolore deserunt. Sit ex quis quis adipisicing veniam cupidatat tempor deserunt nulla cillum. Anim aliqua ea nulla velit proident [nulla reprehenderit](#user-content-fn-2)[^2].
+
+added this as well
 
 What if I add the [same footnote here](#user-content-fn-3)[^3], what happens? Making an update to see if the icon gets removed.
 
