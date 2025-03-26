@@ -4,7 +4,7 @@
 * [group-2](group-2/README.md)
   * [page1](group-2/page1.md)
   * [item](group-2/item.md)
-* [page2](group1/page2.md)
+* [page2 - title change](group1/page2.md)
 * [group1](group1/README.md)
   * [page-in-group](group1/page-in-group.md)
 * [undo page](undo-page.md)
