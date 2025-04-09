@@ -1,0 +1,16 @@
+# Table of contents
+
+* [gitsync-testing-title change](README.md)
+* [btc:getblock - Bitcoin](btc_getblock.md)
+* [Title](new-page.md)
+* [Reusable content in the API](reusable-content-in-the-api.md)
+* [undo page](undo-page.md)
+* [group-2](group-2/README.md)
+  * [item](group-2/item.md)
+  * [page1](group-2/page1.md)
+* [group1](group1/README.md)
+  * [page-in-group](group1/page-in-group.md)
+  * [page2 - title change](group1/page2.md)
+* [.gitbook](.gitbook/README.md)
+  * [includes](.gitbook/includes/README.md)
+    * [Hello world!](.gitbook/includes/hello-world.md)
