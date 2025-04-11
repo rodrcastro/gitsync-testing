@@ -665,7 +665,6 @@ redirects:
   library/applications/jira-experience: library-packs/applications/jira-experience/README.md
   library/sustainable-it: library-packs/sustainable-it.md
   library/mecm-sccm-client-health: library-packs/security-and-compliance/configuration-manager-sccm-client-health/README.md
-  
   #LinkFromConfluenceActiveRedirects
   Experience/latest/nql/investigationsdatamodel: user-guide/nexthink-query-language-nql/nql-data-model.md
   Experience/whatsnew: whats-new/whats-new-2024.8.md
@@ -750,9 +749,6 @@ redirects:
   user-guide/digital-experience/using-digital-experience: user-guide/digital-experience/using-the-overview-dashboard.md
   user-guide/campaigns/getting-started-with-campaigns/conducting-engaging-campaigns: solutions/launching-campaign-programs.md
   tp-communication-ms-teams: integrations/communication-channels/README.md
-  
-  index.html: overview/README.md
-  
   #missingLibraryPacks
   #: device-landscape/workflow_-device-assignment-verification/usage-guide_-device-assignment-verification.md
 
@@ -767,4 +763,3 @@ redirects:
   #learn: 
   #Experience/latest/adding-users:
   #Experience/latest/enabling-saml-authentication-of-users: /platform/latest/enabling-saml-authentication-of-users
-    
