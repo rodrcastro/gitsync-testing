@@ -32,8 +32,8 @@ Dolore tempor eu enim culpa nisi cupidatat aliqua ea laboris quis. Sit proident 
 This is a note with H3
 {% endhint %}
 
-Módulo: Entradas - Compras E-Procurement<br/>
-Grupo: Configurações de Compras - E-Procurement<br/>
+Módulo: Entradas - Compras E-Procurement<br/><br/>
+Grupo: Configurações de Compras - E-Procurement<br/><br/>
 
 Módulo: Entradas - Compras E-Procurement
 
