@@ -33,10 +33,10 @@ This is a note with H3
 {% endhint %}
 
 Módulo: Entradas - Compras E-Procurement<br/>
+
 Grupo: Configurações de Compras - E-Procurement<br/>
 
 Módulo: Entradas - Compras E-Procurement
-
 Grupo: Configurações de Compras - E-Procurement
 
 teste
