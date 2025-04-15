@@ -3,7 +3,7 @@
 Aute ea dolor esse dolor nisi deserunt nisi esse culpa quis. Excepteur laborum eu est elit do nisi excepteur. Quis do culpa anim ullamco duis enim anim nulla exercitation velit officia cupidatat sint sint pariatur. Anim excepteur irure culpa irure ut ullamco dolor. Elit mollit sint nulla cupidatat nostrud duis deserunt consequat exercitation aliqua.
 
 {% hint style="info" %}
-### Note
+#### Note
 
 This is a note with H3
 {% endhint %}
@@ -16,8 +16,6 @@ Anim quis eiusmod nisi excepteur excepteur aliquip eu. Excepteur ut deserunt ame
 |      | asdas | testing                            |
 |      |       |                                    |
 
-
-
 {% hint style="info" %}
 **Note**
 
@@ -27,16 +25,18 @@ This is a note with H4
 Dolore tempor eu enim culpa nisi cupidatat aliqua ea laboris quis. Sit proident exercitation id consectetur sint ex. Do occaecat sit cillum. Aliqua incididunt dolor nulla aute magna irure velit. Duis adipisicing voluptate non. Laborum consectetur eiusmod aliquip aliqua aliquip voluptate eiusmod. Tempor eu occaecat veniam elit ad enim exercitation exercitation ex nostrud ad et culpa.
 
 {% hint style="info" %}
-#### Note
+**Note**
 
 This is a note with H3
 {% endhint %}
 
-Módulo: Entradas - Compras E-Procurement<br/>
+Módulo: Entradas - Compras E-Procurement\
 
-Grupo: Configurações de Compras - E-Procurement<br/>
 
-Módulo: Entradas - Compras E-Procurement
+Grupo: Configurações de Compras - E-Procurement\
+
+
+Módulo: Entradas - Compras E-Procurement\
 Grupo: Configurações de Compras - E-Procurement
 
 teste

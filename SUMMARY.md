@@ -14,3 +14,13 @@
 * [.gitbook](.gitbook/README.md)
   * [includes](.gitbook/includes/README.md)
     * [Hello world!](.gitbook/includes/hello-world.md)
+* ```yaml
+  type: builtin:openapi
+  props:
+    models: false
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: rodrigos-org-api
+  ```
