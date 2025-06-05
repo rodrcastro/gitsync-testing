@@ -2,9 +2,19 @@
 
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
-* [Title](new-page.md)
+* [Title](title.md)
 * [Reusable content in the API](reusable-content-in-the-api.md)
-* [undo page](undo-page.md)
+* [undo page](undo-page/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: test-campai
+    ```
 * [group-2](group-2/README.md)
   * [item](group-2/item.md)
   * [page1](group-2/page1.md)
@@ -15,9 +25,9 @@
   * [includes](.gitbook/includes/README.md)
     * [Hello world!](.gitbook/includes/hello-world.md)
 * ```yaml
-  type: builtin:openapi
   props:
     models: false
+  type: builtin:openapi
   dependencies:
     spec:
       ref:
