@@ -8,6 +8,8 @@ description: >-
 
 #### Parameters
 
+Hello world!
+
 `blockhash` - string, required
 
 The block hash
