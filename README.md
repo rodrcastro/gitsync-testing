@@ -19,6 +19,8 @@ And [another footnote](#user-content-fn-4)[^4].
 
 Another reference[^3]
 
+Other changes perhaps?
+
 [^1]: this is a footnote - editing
 
 [^2]: second footnote
