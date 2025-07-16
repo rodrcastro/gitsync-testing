@@ -9,7 +9,7 @@ This is a hint with a warning and header
 {% hint style="warning" %}
 #### No Warning header
 
-This is a hint with a warning and no header
+This is a hint with a warning and no header.
 {% endhint %}
 
 ![Caption to test](.gitbook/assets/image.png)
