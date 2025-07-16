@@ -11,3 +11,5 @@ This is a hint with a warning and header
 
 This is a hint with a warning and no header
 {% endhint %}
+
+[](.gitbook/assets/image.png)
