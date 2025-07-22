@@ -6,9 +6,9 @@
 * [Reusable content in the API](reusable-content-in-the-api.md)
 * [undo page](undo-page/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
+    type: builtin:openapi
     dependencies:
       spec:
         ref:

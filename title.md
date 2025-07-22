@@ -1,13 +1,13 @@
 # Title
 
 {% hint style="warning" %}
-## Warning
+### Warning
 
 This is a hint with a warning and header
 {% endhint %}
 
 {% hint style="warning" %}
-#### No Warning header
+**No Warning header**
 
 This is a hint with a warning and no header.
 {% endhint %}
