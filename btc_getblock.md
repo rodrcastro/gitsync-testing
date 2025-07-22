@@ -6,7 +6,7 @@ description: >-
 
 # btc:getblock - Bitcoin
 
-#### Parameters
+##Parameters
 
 `blockhash` - string, required
 
