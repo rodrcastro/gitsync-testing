@@ -17,6 +17,8 @@ And the <code class="expression">space.vars.SpaceVariable</code>
 
 In markdown
 
+What if I try to reference the space variable now? <code class="expression">space.vars.SpaceVariable</code> - this is done via Git.
+
 What if I add the [same footnote here](#user-content-fn-3)[^3], what happens? Making an update to see if the icon gets removed.
 
 Ea anim do non non ad sunt culpa nostrud laborum culpa reprehenderit duis elit qui qui. Fugiat et pariatur elit deserunt laboris veniam. Esse aliqua sit Lorem nisi elit aliqua mollit labore nulla dolor nostrud. Commodo est ullamco nostrud magna irure occaecat elit ad officia amet ad. Veniam cillum sunt ut labore exercitation ipsum aliquip incididunt. [Laboris deserunt ea](./#user-content-fn-bignote)\[^1] mollit duis ea ipsum ea pariatur nulla non nisi tempor laborum. In nulla qui adipisicing duis duis nulla mollit et.
