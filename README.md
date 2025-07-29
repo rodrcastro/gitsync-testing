@@ -1,4 +1,6 @@
 ---
+vars:
+  PageVariable: Page Variable Testing
 cover: .gitbook/assets/IMG_1997.JPG
 coverY: 0
 ---
@@ -7,7 +9,13 @@ coverY: 0
 
 Aliqua fugiat esse duis sunt minim. [Sit labore ea occaecat](#user-content-fn-1)[^1] aliquip dolore deserunt. Sit ex quis quis adipisicing veniam cupidatat tempor deserunt nulla cillum. Anim aliqua ea nulla velit proident [nulla reprehenderit](#user-content-fn-2)[^2].
 
-added this as well <img src=".gitbook/assets/IMG_1997.JPG" alt="" data-size="original">
+added this as well&#x20;
+
+How can I reference the <code class="expression">page.vars.PageVariable</code>
+
+And the <code class="expression">space.vars.SpaceVariable</code>
+
+In markdown
 
 What if I add the [same footnote here](#user-content-fn-3)[^3], what happens? Making an update to see if the icon gets removed.
 
