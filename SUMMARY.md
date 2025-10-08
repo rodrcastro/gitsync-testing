@@ -5,16 +5,6 @@
 * [Title](title.md)
 * [Reusable content in the API](reusable-content-in-the-api.md)
 * [undo page](undo-page/README.md)
-  * ```yaml
-    props:
-      models: true
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: test-campai
-    ```
 * [group-2](group-2/README.md)
   * [item](group-2/item.md)
   * [page1](group-2/page1.md)
@@ -24,13 +14,4 @@
 * [.gitbook](.gitbook/README.md)
   * [includes](.gitbook/includes/README.md)
     * [Hello world!](.gitbook/includes/hello-world.md)
-* ```yaml
-  props:
-    models: false
-  type: builtin:openapi
-  dependencies:
-    spec:
-      ref:
-        kind: openapi
-        spec: rodrigos-org-api
-  ```
+* [footnotes](footnotes.md)
