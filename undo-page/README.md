@@ -1,3 +1,21 @@
+---
+description: another description hidden
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
 # undo page
 
 Aute ea dolor esse dolor nisi deserunt nisi esse culpa quis. Excepteur laborum eu est elit do nisi excepteur. Quis do culpa anim ullamco duis enim anim nulla exercitation velit officia cupidatat sint sint pariatur. Anim excepteur irure culpa irure ut ullamco dolor. Elit mollit sint nulla cupidatat nostrud duis deserunt consequat exercitation aliqua.

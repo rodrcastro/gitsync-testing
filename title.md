@@ -1,7 +1,7 @@
 # Title
 
 {% hint style="warning" %}
-### Warning
+#### Warning
 
 This is a hint with a warning and header
 {% endhint %}

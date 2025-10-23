@@ -1,5 +1,6 @@
 # Table of contents
 
+* [page2](group1/page2.md)
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
 * [Title](title.md)
@@ -10,7 +11,7 @@
   * [page1](group-2/page1.md)
 * [group1](group1/README.md)
   * [page-in-group](group1/page-in-group.md)
-  * [page2 - title change](group1/page2.md)
+  * [page2 - title change](<group1/page2 (1).md>)
 * [.gitbook](.gitbook/README.md)
   * [includes](.gitbook/includes/README.md)
     * [Hello world!](.gitbook/includes/hello-world.md)
