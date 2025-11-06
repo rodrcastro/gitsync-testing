@@ -36,6 +36,21 @@ paths:
                 $ref: "#/components/schemas/ApiInformation"
         default:
           $ref: "#/components/responses/UnexpectedError"
+    post:
+      operationId: postApiInformation
+      tags:
+        - api
+      summary: Post information about the state of the GitBook API
+      description: Access the release version and build date of the GitBook codebase - this was added after the fact as an update
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiInformation"
+        default:
+          $ref: "#/components/responses/UnexpectedError"
   /search:
     get:
       operationId: searchContent
