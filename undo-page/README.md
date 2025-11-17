@@ -1,5 +1,6 @@
 ---
 description: another description hidden
+icon: beer-mug
 layout:
   width: default
   title:
@@ -21,7 +22,7 @@ layout:
 Aute ea dolor esse dolor nisi deserunt nisi esse culpa quis. Excepteur laborum eu est elit do nisi excepteur. Quis do culpa anim ullamco duis enim anim nulla exercitation velit officia cupidatat sint sint pariatur. Anim excepteur irure culpa irure ut ullamco dolor. Elit mollit sint nulla cupidatat nostrud duis deserunt consequat exercitation aliqua.
 
 {% hint style="info" %}
-#### Note
+**Note**
 
 This is a note with H3
 {% endhint %}
@@ -48,11 +49,9 @@ Dolore tempor eu enim culpa nisi cupidatat aliqua ea laboris quis. Sit proident 
 This is a note with H3
 {% endhint %}
 
-Módulo: Entradas - Compras E-Procurement\
+Módulo: Entradas - Compras E-Procurement\\
 
-
-Grupo: Configurações de Compras - E-Procurement\
-
+Grupo: Configurações de Compras - E-Procurement\\
 
 Módulo: Entradas - Compras E-Procurement\
 Grupo: Configurações de Compras - E-Procurement
