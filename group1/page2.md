@@ -21,3 +21,5 @@ layout:
 GitBook content part 2
 
 Making a change :thumbsup:
+
+Let me change this one too just in case, separate files, separate folders, completely separate places.
