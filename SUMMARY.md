@@ -3,7 +3,7 @@
 * [page2](group1/page2.md)
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
-* [Title](title.md)
+* [Testing a change in the summary file](title.md)
 * [Reusable content in the API](reusable-content-in-the-api.md)
 * [undo page](undo-page/README.md)
 * [group-2](group-2/README.md)
@@ -16,3 +16,4 @@
   * [includes](.gitbook/includes/README.md)
     * [Hello world!](.gitbook/includes/hello-world.md)
 * [footnotes](footnotes.md)
+* [New page added](new-page-added.md)
