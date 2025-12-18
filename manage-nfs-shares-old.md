@@ -14,6 +14,10 @@ Alternatively, you can also click on the cluster's **NAME** and select the **Man
 
 ![Manage Shares tab](../../../images/network-file-storage/nfs-manage-shares-tab.png)  
 
+# New content on how to mount a share
+
+Just creating a new content here, no biggie.
+
 {% hint style="success" %}
 **Result:** A list of all shares associated with the respective cluster are displayed. You can view the following details:
 * **Directory Name:** Displays the name of the share. Select the name to view its details.
@@ -36,6 +40,7 @@ For mounting an NFS share the IP (ie. 10.7.228.5) of the cluster and the UUID (i
 The format is:
 
 `mount -t nfs <cluster-ip>:<share-uuid> <local-mount-path>`
+
 
 
 
