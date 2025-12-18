@@ -16,13 +16,11 @@ Alternatively, you can also click on the cluster's **NAME** and select the **Man
 
 {% hint style="success" %}
 **Result:** A list of all shares associated with the respective cluster are displayed. You can view the following details:
-
 * **Directory Name:** Displays the name of the share. Select the name to view its details.
 *  **QUOTA:** Displays the respective share's quota in MiB.
 * **Group Id:** Displays the respective share owner's group ID.
 * **User Id:** Displays the respective share owner's user ID.
 *  **CLIENT GROUPS:** Displays the number of client groups that are associated with the respective share.
-
 * **ACTIONS:** Select ![](../../../images/three-dots.png) to perform the following: 
   * **View/Edit Share:** Select the option to either view or edit its [<mark style="color:blue;">**Properties**</mark>](create-nfs-share.md#define-share-properties) or [<mark style="color:blue;">**Client Groups**</mark>](create-nfs-share.md#add-client-groups) through the **View / Edit Share** window. Click **Save** to save the updates.
   * **Copy ShareId:** Select the option to copy the corresponding share ID.
