@@ -17,3 +17,4 @@
     * [Hello world!](.gitbook/includes/hello-world.md)
 * [footnotes](footnotes.md)
 * [New page added](new-page-added.md)
+* [Manage Shares](manage-nfs-shares-old.md)
