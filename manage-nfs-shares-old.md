@@ -27,7 +27,7 @@ Alternatively, you can also click on the cluster's **NAME** and select the **Man
   * **x Delete Share:** Select the option to delete the chosen share and select **Delete** in the dialog box to confirm deletion. For more information, see [<mark style="color:blue;">Delete a Share</mark>](delete-nfs-share.md).
 {% endhint %}
 
-# Mount a NFS share on a linux machine
+## Mount a NFS share on a linux machine
 
 For mounting an NFS share the IP (ie. 10.7.228.5) of the cluster and the UUID (ie. 7b1ef56d-dfc6-51fe-aff0-7af2d6747868) of the share is needed.
 
