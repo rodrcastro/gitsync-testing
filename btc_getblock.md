@@ -14,6 +14,8 @@ The block hash
 
 <figure><img src=".gitbook/assets/Screenshot-10-02-2025@2x.png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src=".gitbook/assets/Screenshot-22-05-2024@2x.png" alt=""><figcaption></figcaption></figure>
+
 `verbosity` - numeric, optional, default=1
 
 0 for hex-encoded data, 1 for a json object, and 2 for json object with transaction data
