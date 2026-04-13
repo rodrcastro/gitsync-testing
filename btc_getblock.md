@@ -12,8 +12,6 @@ description: >-
 
 The block hash
 
-<figure><img src=".gitbook/assets/Screenshot-10-02-2025@2x.png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src=".gitbook/assets/Screenshot-22-05-2024@2x.png" alt=""><figcaption></figcaption></figure>
 
 `verbosity` - numeric, optional, default=1
