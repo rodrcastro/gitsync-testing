@@ -1,6 +1,13 @@
 # Table of contents
 
 * [page2](group1/page2.md)
+
+## Linking test
+
+* [Page 1](linking-test/page-1.md)
+
+***
+
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
 * [Testing a change in the summary file](title.md)
