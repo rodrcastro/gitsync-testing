@@ -2,6 +2,7 @@
 description: >-
   Example code for the btc:getblock json-rpc method. Сomplete guide on how to
   use btc:getblock json-rpc in GetBlock.io Web3 documentation.
+if: visitor.claims.isLoggedIn === true
 ---
 
 # btc:getblock - Bitcoin
