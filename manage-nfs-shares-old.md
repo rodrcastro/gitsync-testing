@@ -22,10 +22,10 @@ Just creating a new content here, no biggie.
 * **Group Id:** Displays the respective share owner's group ID.
 * **User Id:** Displays the respective share owner's user ID.
 * **CLIENT GROUPS:** Displays the number of client groups that are associated with the respective share.
-* **ACTIONS:** Select  to perform the following:
-  * **View/Edit Share:** Select the option to either view or edit its [<mark style="color:blue;">**Properties**</mark>](create-nfs-share.md#define-share-properties) or [<mark style="color:blue;">**Client Groups**</mark>](create-nfs-share.md#add-client-groups) through the **View / Edit Share** window. Click **Save** to save the updates.
+* **ACTIONS:** Select to perform the following:
+  * **View/Edit Share:** Select the option to either view or edit its [<mark style="color:blue;">**Properties**</mark>](https://github.com/rodrcastro/gitsync-testing/blob/main/create-nfs-share.md#define-share-properties) or [<mark style="color:blue;">**Client Groups**</mark>](https://github.com/rodrcastro/gitsync-testing/blob/main/create-nfs-share.md#add-client-groups) through the **View / Edit Share** window. Click **Save** to save the updates.
   * **Copy ShareId:** Select the option to copy the corresponding share ID.
-  * **x Delete Share:** Select the option to delete the chosen share and select **Delete** in the dialog box to confirm deletion. For more information, see [<mark style="color:blue;">Delete a Share</mark>](delete-nfs-share.md).
+  * **x Delete Share:** Select the option to delete the chosen share and select **Delete** in the dialog box to confirm deletion. For more information, see [<mark style="color:blue;">Delete a Share</mark>](https://github.com/rodrcastro/gitsync-testing/blob/main/delete-nfs-share.md).
 {% endhint %}
 
 ### Mount a NFS share on a linux machine

@@ -1,7 +1,7 @@
-# Title
+# Testing a change in the summary file
 
 {% hint style="warning" %}
-#### Warning
+**Warning**
 
 This is a hint with a warning and header
 {% endhint %}
