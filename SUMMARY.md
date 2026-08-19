@@ -4,7 +4,7 @@
 
 ## Linking test
 
-* [Hello world](linking-test/page-1.md)
+* [Hello world](linking-test/change-name-of-file.md)
 
 ***
 
