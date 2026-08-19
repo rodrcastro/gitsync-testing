@@ -16,6 +16,6 @@ Cupidatat elit magna laborum laborum consectetur ea magna sunt qui reprehenderit
 
 Velit velit ea culpa amet pariatur fugiat sunt labore fugiat laborum laboris ut. Tempor do laborum est reprehenderit. Irure proident est eiusmod est sunt sunt aute duis cupidatat sunt eiusmod commodo. Minim laboris ullamco enim cillum nisi Lorem eu eu pariatur labore.
 
-## Heading that will be mentioned
+## Change heading name
 
 This is the heading that will be mentioned somewhere
