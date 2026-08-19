@@ -4,13 +4,13 @@
 
 ## Linking test
 
-* [Page 1](linking-test/page-1.md)
+* [Hello world](linking-test/page-1.md)
 
 ***
 
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
-* [Testing a change in the summary file](title.md)
+* [This page title has changed](title.md)
 * [Reusable content in the API](reusable-content-in-the-api.md)
 * [undo page](undo-page/README.md)
 * [item](item.md)
