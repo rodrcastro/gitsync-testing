@@ -3,3 +3,6 @@ root: ./
 structure:
   summary: SUMMARY.md
   readme: group1/page2.md
+
+redirects:
+  test/123: item.md
