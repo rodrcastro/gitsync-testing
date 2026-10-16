@@ -26,3 +26,4 @@
 * [page2 - title change](page2-1.md)
 * [page-in-group](page-in-group.md)
 * [RC sync test](rc-sync-test.md)
+* [Heading mapping test](heading-mapping-test.md)
