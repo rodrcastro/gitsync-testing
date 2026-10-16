@@ -27,3 +27,4 @@
 * [page-in-group](page-in-group.md)
 * [RC sync test](rc-sync-test.md)
 * [Heading mapping test](heading-mapping-test.md)
+* [Heading mapping control](heading-mapping-control.md)
