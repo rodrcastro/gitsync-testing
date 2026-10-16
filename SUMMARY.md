@@ -10,7 +10,7 @@
 
 * [gitsync-testing-title change](README.md)
 * [btc:getblock - Bitcoin](btc_getblock.md)
-* [This page title has changed](title.md)
+* [This page title has changed](title.md "This page changed")
 * [Reusable content in the API](reusable-content-in-the-api.md)
 * [undo page](undo-page/README.md)
 * [item](item.md)
@@ -28,3 +28,4 @@
 * [RC sync test](rc-sync-test.md)
 * [Heading mapping test](heading-mapping-test.md)
 * [Heading mapping control](heading-mapping-control.md)
+* [Page 1](page-1.md)
