@@ -1,0 +1,834 @@
+openapi: 3.0.3
+info:
+  title: Orbital Coffee API
+  version: 1.4.0
+  description: |
+    A fictional API for a coffee chain operating on space stations. Built for
+    testing OpenAPI rendering, so it covers a broad mix of features: multiple
+    auth schemes, path/query/header params, enums, `oneOf` with a discriminator,
+    nullable fields, pagination, file uploads, webhooks-style callbacks and
+    deprecated operations.
+
+    **None of these endpoints exist.**
+  contact:
+    name: Orbital Coffee Dev Team
+    email: dev@orbital-coffee.example
+    url: https://orbital-coffee.example/support
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://orbital-coffee.example/terms
+
+servers:
+  - url: https://api.orbital-coffee.example/v1
+    description: Production
+  - url: https://sandbox.orbital-coffee.example/v1
+    description: Sandbox
+  - url: https://{station}.orbital-coffee.example/v1
+    description: Station-specific endpoint
+    variables:
+      station:
+        default: iss
+        enum: [iss, tiangong, gateway]
+        description: The space station the shop is on.
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Menu
+    description: Browse drinks and pastries.
+    x-page-title: Menu
+    x-page-icon: mug-hot
+  - name: Orders
+    description: Place, track and cancel orders.
+    x-page-icon: receipt
+  - name: Customers
+    description: Manage customer profiles and loyalty points.
+    x-page-icon: user-astronaut
+  - name: Stations
+    description: Information about the stations we serve.
+    x-page-icon: satellite
+
+paths:
+  /menu/items:
+    get:
+      tags: [Menu]
+      operationId: listMenuItems
+      summary: List menu items
+      description: Returns a paginated list of everything on the menu.
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+        - name: category
+          in: query
+          description: Filter by category.
+          schema:
+            $ref: '#/components/schemas/MenuCategory'
+        - name: maxPrice
+          in: query
+          description: Only return items at or below this price (in credits).
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            example: 4.5
+        - name: tags
+          in: query
+          description: Filter by one or more dietary tags.
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [vegan, gluten-free, decaf, zero-g-safe]
+      responses:
+        '200':
+          description: A page of menu items.
+          headers:
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/RateLimitRemaining'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItemPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /menu/items/{itemId}:
+    parameters:
+      - $ref: '#/components/parameters/ItemId'
+    get:
+      tags: [Menu]
+      operationId: getMenuItem
+      summary: Get a menu item
+      security: []
+      responses:
+        '200':
+          description: The menu item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags: [Menu]
+      operationId: updateMenuItem
+      summary: Update a menu item
+      description: Partially update a menu item. Requires the `menu:write` scope.
+      security:
+        - oauth2: [menu:write]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItemUpdate'
+            example:
+              price: 3.75
+              available: false
+      responses:
+        '200':
+          description: The updated menu item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /menu/items/{itemId}/image:
+    parameters:
+      - $ref: '#/components/parameters/ItemId'
+    put:
+      tags: [Menu]
+      operationId: uploadMenuItemImage
+      summary: Upload an item image
+      security:
+        - oauth2: [menu:write]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: PNG or JPEG, max 2 MB.
+                altText:
+                  type: string
+                  maxLength: 200
+      responses:
+        '204':
+          description: Image uploaded.
+        '413':
+          description: File too large.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /orders:
+    get:
+      tags: [Orders]
+      operationId: listOrders
+      summary: List orders
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Cursor'
+        - name: status
+          in: query
+          schema:
+            $ref: '#/components/schemas/OrderStatus'
+        - name: createdAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+            example: '2026-10-01T00:00:00Z'
+      responses:
+        '200':
+          description: A page of orders.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderPage'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      tags: [Orders]
+      operationId: createOrder
+      summary: Place an order
+      description: |
+        Places a new order. Use the `Idempotency-Key` header to safely retry.
+
+        If `callbackUrl` is provided, we will POST status updates to it.
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          description: A unique key to make the request idempotent.
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreate'
+            examples:
+              pickup:
+                summary: Pickup order
+                value:
+                  customerId: cus_8f2k1
+                  items:
+                    - itemId: itm_nebula_latte
+                      quantity: 2
+                      options:
+                        milk: oat
+                        size: large
+                  fulfillment:
+                    type: pickup
+                    counter: B
+              delivery:
+                summary: Delivery to a module
+                value:
+                  customerId: cus_8f2k1
+                  items:
+                    - itemId: itm_comet_croissant
+                      quantity: 1
+                  fulfillment:
+                    type: delivery
+                    module: Destiny
+                    deck: 2
+                  callbackUrl: https://example.com/hooks/orders
+      responses:
+        '201':
+          description: Order created.
+          headers:
+            Location:
+              description: URL of the new order.
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+      callbacks:
+        orderStatusChanged:
+          '{$request.body#/callbackUrl}':
+            post:
+              summary: Order status changed
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/OrderEvent'
+              responses:
+                '200':
+                  description: Acknowledged.
+
+  /orders/{orderId}:
+    parameters:
+      - name: orderId
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '^ord_[a-z0-9]{8}$'
+          example: ord_a1b2c3d4
+    get:
+      tags: [Orders]
+      operationId: getOrder
+      summary: Get an order
+      responses:
+        '200':
+          description: The order.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags: [Orders]
+      operationId: cancelOrder
+      summary: Cancel an order
+      description: Only orders in `pending` or `brewing` status can be cancelled.
+      responses:
+        '204':
+          description: Order cancelled.
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Order can no longer be cancelled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: order_already_delivered
+                message: This order was delivered and cannot be cancelled.
+
+  /orders/{orderId}/tip:
+    post:
+      tags: [Orders]
+      operationId: tipOrder
+      summary: Tip the barista (deprecated)
+      deprecated: true
+      description: Use the `tip` field when creating the order instead.
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  minimum: 0.5
+      responses:
+        '200':
+          description: Tip recorded.
+
+  /customers/{customerId}:
+    parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: cus_8f2k1
+    get:
+      tags: [Customers]
+      operationId: getCustomer
+      summary: Get a customer
+      security:
+        - bearerAuth: []
+        - apiKey: []
+      responses:
+        '200':
+          description: The customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      tags: [Customers]
+      operationId: replaceCustomer
+      summary: Replace a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: The updated customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /customers/{customerId}/loyalty:
+    get:
+      tags: [Customers]
+      operationId: getLoyalty
+      summary: Get loyalty balance
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Loyalty balance.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  points:
+                    type: integer
+                    example: 1240
+                  tier:
+                    type: string
+                    enum: [orbit, moon, sun, supernova]
+                  nextTierAt:
+                    type: integer
+                    nullable: true
+                    description: Points needed for the next tier, or `null` at the top tier.
+                    example: 2000
+
+  /stations:
+    get:
+      tags: [Stations]
+      operationId: listStations
+      summary: List stations
+      security: []
+      responses:
+        '200':
+          description: All stations with an Orbital Coffee shop.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+            text/csv:
+              schema:
+                type: string
+              example: |
+                id,name,altitudeKm,open
+                iss,International Space Station,408,true
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.orbital-coffee.example/oauth/token
+          scopes:
+            menu:write: Modify the menu
+            orders:read: Read orders
+            orders:write: Create and cancel orders
+
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Max number of results to return.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+    Cursor:
+      name: cursor
+      in: query
+      description: Cursor from the previous page's `next` field.
+      schema:
+        type: string
+    ItemId:
+      name: itemId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: itm_nebula_latte
+
+  headers:
+    RateLimitRemaining:
+      description: Requests remaining in the current window.
+      schema:
+        type: integer
+        example: 99
+
+  responses:
+    BadRequest:
+      description: The request was malformed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: unauthorized
+            message: Invalid bearer token.
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: not_found
+            message: No resource with that ID.
+    ValidationError:
+      description: The request body failed validation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+
+  schemas:
+    MenuCategory:
+      type: string
+      enum: [coffee, tea, pastry, freeze-dried]
+      x-enumDescriptions:
+        coffee: Hot and iced coffee drinks.
+        tea: Loose-leaf and bagged teas.
+        pastry: Baked on-station daily.
+        freeze-dried: Long-shelf-life snacks for EVA.
+
+    MenuItem:
+      type: object
+      required: [id, name, category, price, available]
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: itm_nebula_latte
+        name:
+          type: string
+          example: Nebula Latte
+        description:
+          type: string
+          nullable: true
+          example: Espresso, steamed milk and a swirl of butterfly-pea syrup.
+        category:
+          $ref: '#/components/schemas/MenuCategory'
+        price:
+          type: number
+          format: float
+          description: Price in station credits.
+          example: 4.25
+        calories:
+          type: integer
+          minimum: 0
+          example: 180
+        tags:
+          type: array
+          items:
+            type: string
+          example: [zero-g-safe]
+        available:
+          type: boolean
+          example: true
+        imageUrl:
+          type: string
+          format: uri
+          nullable: true
+
+    MenuItemUpdate:
+      type: object
+      minProperties: 1
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        price:
+          type: number
+          format: float
+        available:
+          type: boolean
+
+    MenuItemPage:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuItem'
+        next:
+          type: string
+          nullable: true
+          description: Cursor for the next page, or `null` on the last page.
+
+    OrderStatus:
+      type: string
+      enum: [pending, brewing, ready, delivered, cancelled]
+
+    OrderLine:
+      type: object
+      required: [itemId, quantity]
+      properties:
+        itemId:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+          maximum: 10
+        options:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            milk: oat
+            size: large
+
+    PickupFulfillment:
+      type: object
+      required: [type, counter]
+      properties:
+        type:
+          type: string
+          enum: [pickup]
+        counter:
+          type: string
+          enum: [A, B, C]
+
+    DeliveryFulfillment:
+      type: object
+      required: [type, module]
+      properties:
+        type:
+          type: string
+          enum: [delivery]
+        module:
+          type: string
+          example: Destiny
+        deck:
+          type: integer
+          example: 2
+
+    Fulfillment:
+      oneOf:
+        - $ref: '#/components/schemas/PickupFulfillment'
+        - $ref: '#/components/schemas/DeliveryFulfillment'
+      discriminator:
+        propertyName: type
+        mapping:
+          pickup: '#/components/schemas/PickupFulfillment'
+          delivery: '#/components/schemas/DeliveryFulfillment'
+
+    OrderCreate:
+      type: object
+      required: [customerId, items, fulfillment]
+      properties:
+        customerId:
+          type: string
+        items:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/OrderLine'
+        fulfillment:
+          $ref: '#/components/schemas/Fulfillment'
+        tip:
+          type: number
+          minimum: 0
+          default: 0
+        callbackUrl:
+          type: string
+          format: uri
+
+    Order:
+      allOf:
+        - $ref: '#/components/schemas/OrderCreate'
+        - type: object
+          required: [id, status, total, createdAt]
+          properties:
+            id:
+              type: string
+              readOnly: true
+              example: ord_a1b2c3d4
+            status:
+              $ref: '#/components/schemas/OrderStatus'
+            total:
+              type: number
+              format: float
+              example: 12.5
+            createdAt:
+              type: string
+              format: date-time
+            estimatedReadyAt:
+              type: string
+              format: date-time
+              nullable: true
+
+    OrderPage:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        next:
+          type: string
+          nullable: true
+
+    OrderEvent:
+      type: object
+      required: [event, orderId, status, occurredAt]
+      properties:
+        event:
+          type: string
+          enum: [order.status_changed]
+        orderId:
+          type: string
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        occurredAt:
+          type: string
+          format: date-time
+
+    CustomerInput:
+      type: object
+      required: [name, email]
+      properties:
+        name:
+          type: string
+          example: Valentina Tereshkova
+        email:
+          type: string
+          format: email
+          example: val@orbital-coffee.example
+        homeStation:
+          type: string
+          enum: [iss, tiangong, gateway]
+        preferences:
+          type: object
+          properties:
+            milk:
+              type: string
+              enum: [whole, skim, oat, almond, none]
+            sweetener:
+              type: boolean
+              default: false
+
+    Customer:
+      allOf:
+        - $ref: '#/components/schemas/CustomerInput'
+        - type: object
+          required: [id, createdAt]
+          properties:
+            id:
+              type: string
+              readOnly: true
+              example: cus_8f2k1
+            createdAt:
+              type: string
+              format: date-time
+
+    Station:
+      type: object
+      properties:
+        id:
+          type: string
+          example: iss
+        name:
+          type: string
+          example: International Space Station
+        altitudeKm:
+          type: integer
+          example: 408
+        open:
+          type: boolean
+        openingHours:
+          type: object
+          properties:
+            opensAt:
+              type: string
+              example: '06:00'
+            closesAt:
+              type: string
+              example: '22:00'
+            timezone:
+              type: string
+              example: UTC
+
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          example: bad_request
+        message:
+          type: string
+          example: Something went wrong.
+        requestId:
+          type: string
+          example: req_7d9e2f
+
+    ValidationError:
+      allOf:
+        - $ref: '#/components/schemas/Error'
+        - type: object
+          properties:
+            fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    example: items[0].quantity
+                  issue:
+                    type: string
+                    example: must be between 1 and 10
