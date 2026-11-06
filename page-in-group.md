@@ -25,3 +25,7 @@ layout:
 added a change from GitBook
 
 but pagination is disabled
+
+{% hint style="info" %}
+Edited from GitHub on the `protected-sync-test` branch.
+{% endhint %}

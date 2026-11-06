@@ -13,3 +13,7 @@ This is a hint with a warning and no header.
 {% endhint %}
 
 Testing a change coming from GitHub in a completly different file.
+
+## Protected branch sync test
+
+This paragraph was added on the `protected-sync-test` branch to check Git Sync against a branch protected by a ruleset.
