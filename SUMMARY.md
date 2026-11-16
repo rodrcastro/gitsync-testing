@@ -29,3 +29,9 @@
 * [Heading mapping test](heading-mapping-test.md)
 * [Heading mapping control](heading-mapping-control.md)
 * [Page 1](page-1.md)
+
+## Visibility test
+
+* [Visibility test: hidden only](visibility-test/hidden-only.md)
+* [Visibility test: hidden + noRobotsIndex](visibility-test/hidden-norobots.md)
+* [Visibility test: hidden + noIndex](visibility-test/hidden-noindex.md)
